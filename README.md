@@ -44,7 +44,7 @@ A python script running on <u>raspberry pi zero </u>  uploads  these values to f
 
 <b> Callibration</b>
 
-The intensity of emisstter LEDs is kept constant.
+The intensity of emitter LEDs is kept constant.
 
 With variation in sample solution, the intensity of radiation at the other end of photodiode varies.
 
