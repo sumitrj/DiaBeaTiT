@@ -36,7 +36,7 @@ Analyse the data of Step 2 to find correlation.
 
 <i> <u> <b>Part A: Construction of the Spectrometer </i> </u></b>
 
-Near IR range LEDs (940nm) and photodiodes are placed opposite to each other considering an optical rotation of 180 degrees. 
+Near IR range LEDs (940nm) and photodiodes are placed opposite to each other considering an optical rotation of 180 degrees. The peak absorption of Glucose is observed at 940nm in it's spectrum.
 
 These LED's are connected to <u>Arduino NANO </u> which is transferring data to <u>Raspberry Pi zero </u>.
 
@@ -48,44 +48,43 @@ The intensity of emitter LEDs is kept constant.
 
 With variation in sample solution, the intensity of radiation at the other end of photodiode varies.
 
-70 samples of known glucose concentration are placed in the device and attenuation metric is recorded.
+200 samples of known glucose concentration are placed in the device and attenuation metric is recorded.
 
-According to Beer's Law, concentration and attanuation vary linearly hence, linear regression analysis is done to map attenuation values to concentration.  
+According to Beer's Law, concentration and attanuation vary in polynomial fashion hence, polynomial regression analysis is done to map attenuation values to concentration.  
 
-Cs(A) = mA + b where Cs is concentraion of solution, A is the attenuation metric.
+The obtained array of Cofficients can be given as:
+Pmc = [0.00000000e+00,  1.03820866e-03,  2.85167552e-06, -1.52347882e-09]
+Cs(A) = Polynomial(A,Pmc)
 
-Range of A: 0 to 1023
+Range of A: 350 to 1023
 
-<b>Weights after Regression Analysis:</b>
-m = 2.69
-b = - 1821.77
+Accuracy Observed: 92%
 
 <b><i> <u> Part B: Glucose Level Prediction </i> </u></b>
 
-Samples of saliva and blood of 100 people were collected and data was analysed. 
+Samples of saliva and blood of 52 people were collected and data was analysed. 
 
-Information Entropy Analysis was found to be the perfect tool considering this to be a small sample data. 
+Polynomial Regression turned out to be most computationally economics and accurate tool considering this to be a small sample data. 
 
-Accuracy of 97.4% was achieved
+Accuracy of 91% was achieved
+The Coefficient Matrix for this Polynomial was found to be:
+Psa = [ 0.0 , 61.58593563, 14.3749855 ]
 
-The linear regression alternative of the algorithm had the following model:
-
-BGL(Cs) = n*(Cs) + d
-
-where BGL is Blood Glucose Level and Cs is the Glucose Concentration of Solution
-
-<b>Weights after Regression Analysis:</b>
-m = 27.69
-b = 95.67
+Blood Glucose Concentration (Salivary Glucose Concentration) = Polynomial(Sal,Psa)
 
 Hence, overall mathematical model is presented as:
 
-<b> BGL(A) = 74.539*(A) - 174173.96439
-where A is the attenuation metric
+Pmc = [0.00000000e+00,  1.03820866e-03,  2.85167552e-06, -1.52347882e-09]
+Psa = [ 0.0 , 61.58593563, 14.3749855 ]
+BGL(A) = Polynomial(Polynomial(A,Pmc),Psa)
+
+where A is the attenuation metric or the Microcontroller Value
+The Overall Accuracy for the device was found to be 82%
 
 <i> <u><b> Part C: Cloud Interface </i> </u></b>
 
 Cloud Tool : Firebase
 
 The attenuation values are sent to firebase and an app interface is used to view the Blood Glucose Level.
+Alternatively, these Mathematical models were also be incorporated in Raspberry Pi so that it is able to display immediate results.
 
