@@ -1,5 +1,5 @@
 ## Following  are the Links to references which were used to obtain understanding of the domain before begining with the project. 
-## All of them are research papers or official reports 
+#### All of the mentioned materials are research papers or official reports 
 
 1. https://sci-hub.tw/10.1109/IEMBS.1998.746929 </n>
 2. https://sci-hub.tw/10.1109/SECON.2018.8478891 </n>
