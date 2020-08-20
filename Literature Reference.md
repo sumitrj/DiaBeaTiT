@@ -1,4 +1,4 @@
-## Following  are the Links to references which were used to obtain understanding of the domain before begining with the project. 
+## Following  are the Links to references which were used to obtain understanding of the domain before starting the project. 
 #### All of the mentioned materials are research papers or official reports 
 
 1. https://sci-hub.tw/10.1109/IEMBS.1998.746929 </n>
